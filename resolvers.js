@@ -10,6 +10,17 @@ const resolvers = {
             return posts;
         }
     },
-};
+    Mutation: {
+        createPost: async( parent, args, context, info ) => {
+            const { title, description } = args.post
+            console.log( title, description );
+            const post = new Post({ title, description });
+            await post.save();
+            return post;
+            
+    }
+}
+
+}
 
 module.exports = resolvers;

@@ -11,5 +11,15 @@ const typeDefs = gql`
 
         getAllPosts: [Post]
     }
+
+    input PostInput {
+        title: String!
+        description: String
+    }
+
+    type Mutation {
+        createPost( post: PostInput ): Post
+        getPost( id: ID! ): Post
+    }
 `
 module.exports = typeDefs;
