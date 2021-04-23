@@ -10,6 +10,7 @@ const typeDefs = gql`
         hello: String
 
         getAllPosts: [Post]
+        getPost( id: ID! ): Post
     }
 
     input PostInput {
@@ -20,6 +21,8 @@ const typeDefs = gql`
     type Mutation {
         createPost( post: PostInput ): Post
         getPost( id: ID! ): Post
+        deletePost( id: ID!): String
+        updatePost( id: ID!, post: PostInput ): Post
     }
 `
 module.exports = typeDefs;
